@@ -18,18 +18,7 @@ for(let i = 0; i < li_elements.length; i++){
         else if(li_value == "loreal"){
             document.querySelector("." + li_value).style.display = "block";
 
-        }
-        else if(li_value == "annabelle"){
-            document.querySelector("." + li_value).style.display = "block";
-
-        }
-
-        else if(li_value == "dior"){
-            document.querySelector("." + li_value).style.display = "block";
-
-        }
-
-        else{
+        } else{
             console.log("");
         }
     
@@ -114,85 +103,4 @@ fetch('http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline')
         }
     })
     .catch(error => console.log('Fout: ', error));
-
-    //3rd fetch for brand annabelle
-
-    fetch('https://makeup-api.herokuapp.com/api/v1/products.json?brand=annabelle')
-    .then(res => {
-        if (res.ok) {
-            console.log('Succesvol');
-            return res.json();
-        } else {
-            console.log('Niet succesvol');
-            throw new Error('Fout bij het laden van de gegevens');
-        }
-    })
-    .then(data => {
-        const container = document.querySelector('.container1');
-        const AnnabelleItem = container.querySelector('.annabelle');
-
-        const desiredProductIds = [332, 246]; // Vervang dit met de gewenste product-ID's
-
-        for (let i = 0; i < data.length; i++) {
-            const product = data[i];
-            if (desiredProductIds.includes(product.id)) {
-                const { id, name, price, image_link } = product;
-
-                const newItem = document.createElement('div');
-                newItem.classList.add('item');
-                newItem.innerHTML = `
-                        <div class="img">
-                            <img src="${image_link}" alt="Productafbeelding" width="110" height="110">
-                        </div>
-                        <p>ID: ${id}</p>
-                        <p>Productnaam: ${name}</p>
-                        <p>Prijs: ${price}</p>
-                    </div>
-                `;
-
-                AnnabelleItem.appendChild(newItem);
-            }
-        }
-    })
-    .catch(error => console.log('Fout: ', error));
-
-//4th api
-
-fetch('https://makeup-api.herokuapp.com/api/v1/products.json?brand=dior')
-    .then(res => {
-        if (res.ok) {
-            console.log('Succesvol');
-            return res.json();
-        } else {
-            console.log('Niet succesvol');
-            throw new Error('Fout bij het laden van de gegevens');
-        }
-    })
-    .then(data => {
-        const container = document.querySelector('.container1');
-        const diorItem = container.querySelector('.dior');
-
-        const desiredProductIds = [729, 728]; // Vervang dit met de gewenste product-ID's
-
-        for (let i = 0; i < data.length; i++) {
-            const product = data[i];
-            if (desiredProductIds.includes(product.id)) {
-                const { id, name, price, image_link } = product;
-
-                const newItem = document.createElement('div');
-                newItem.classList.add('item');
-                newItem.innerHTML = `
-                        <div class="img">
-                            <img src="${image_link}" alt="Productafbeelding" width="110" height="110" margin-top="20px">
-                        </div>
-                        <p>ID: ${id}</p>
-                        <p>Productnaam: ${name}</p>
-                        <p>Prijs: ${price}</p>
-                    </div>
-                `;
-
-                diorItem.appendChild(newItem);
-            }
-        }
-    })
-    .catch(error => console.log('Fout: ', error));
+;

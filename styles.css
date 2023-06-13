@@ -151,16 +151,6 @@ text-transform: uppercase;
     width: 200px;
     height: 200px;
 }
-.wrapper_right .item.annabelle .item_info .img:before{
-    background: url(fenty.png);
-    width: 250px;
-    height: 250px;
-}
-.wrapper_right .item.dior .item_info .img:before{
-    background: url(dior.png);
-    width: 250px;
-    height: 250px;
-}
 
 .wrapper_right .item .item_info p{
     background:seashell;
