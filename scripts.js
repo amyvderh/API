@@ -25,7 +25,7 @@ for(let i = 0; i < li_elements.length; i++){
     })
 }
 
-fetch('http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline')
+fetch('https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline')
     .then(res => {
         if (res.ok) {
             console.log('Succesvol');
