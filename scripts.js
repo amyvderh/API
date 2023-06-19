@@ -25,31 +25,30 @@ for(let i = 0; i < li_elements.length; i++){
     })
 }
 
+// #fetch the API and after that the promises arise 
 fetch('https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline')
-    .then(res => {
-        if (res.ok) {
-            console.log('Succesvol');
-            return res.json();
+    .then(response => {
+        if (response.ok) {
+            console.log('Succesfully connected to API');
+            return response.json();
         } else {
-            console.log('Niet succesvol');
-            throw new Error('Fout bij het laden van de gegevens');
+            console.log('Unable to find API');
         }
     })
-    .then(data => {
+    .then(makeupdata => {
         const container = document.querySelector('.container1');
-        const maybellineItem = container.querySelector('.maybelline');
+        const maybellineProduct = container.querySelector('.maybelline');
 
-        const desiredProductIds = [452, 468]; // Vervang dit met de gewenste product-ID's
+        const wantedProductId = [452, 468];
 
-        for (let i = 0; i < data.length; i++) {
-            const product = data[i];
-            if (desiredProductIds.includes(product.id)) {
-                const { id, name, price, image_link } = product;
+        for (let i = 0; i < makeupdata.length; i++) {
+            const product = makeupdata[i];
+            if (wantedProductId.includes(product.id)) {
+                const { id, name, price, image_link} = product;
 
-                const newItem = document.createElement('div');
-                newItem.classList.add('item');
-                newItem.innerHTML = `
-                        <div class="img">
+                const makeupItem = document.createElement('div');
+                makeupItem.classList.add('item');
+                makeupItem.innerHTML = `
                             <img src="${image_link}" alt="Productafbeelding" width="110" height="110">
                         </div>
                         <p>ID: ${id}</p>
@@ -58,7 +57,7 @@ fetch('https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline')
                     </div>
                 `;
 
-                maybellineItem.appendChild(newItem);
+                maybellineProduct.appendChild(makeupItem);
             }
         }
     })
@@ -67,38 +66,36 @@ fetch('https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline')
     // 2nd fetch for the second brand l'oreal
 
     fetch('https://makeup-api.herokuapp.com/api/v1/products.json?brand=l%27oreal')
-    .then(res => {
-        if (res.ok) {
-            console.log('Succesvol');
-            return res.json();
+    .then(response => {
+        if (response.ok) {
+            console.log('Succesfully connected to API');
+            return response.json();
         } else {
-            console.log('Niet succesvol');
-            throw new Error('Fout bij het laden van de gegevens');
+            console.log('Unable to find API');
         }
     })
-    .then(data => {
-        const container = document.querySelector('.container1');
-        const lorealItem = container.querySelector('.loreal');
+    .then(makeupdata => {
+        const container1 = document.querySelector('.container1');
+        const lorealItem = container1.querySelector('.loreal');
 
-        const desiredProductIds = [400, 350]; // Vervang dit met de gewenste product-ID's
+        const wantedProductId = [400, 350];
 
-        for (let i = 0; i < data.length; i++) {
-            const product = data[i];
-            if (desiredProductIds.includes(product.id)) {
-                const { id, name, price, image_link } = product;
+        for (let i = 0; i < makeupdata.length; i++) {
+            const product = makeupdata[i];
+            if (wantedProductId.includes(product.id)) {
+                const { id, name, price, image_link} = product;
 
-                const newItem = document.createElement('div');
-                newItem.classList.add('item');
-                newItem.innerHTML = `
-                        <div class="img">
-                            <img src="${image_link}" alt="Productafbeelding" width="80" height="110">
+                const makeupItem = document.createElement('div');
+                makeupItem.classList.add('item');
+                makeupItem.innerHTML = `
+                            <img src="${image_link}" width="110" height="110">
                         </div>
                         <p>ID: ${id}</p>
                         <p>Productnaam: ${name}</p>
                         <p>Prijs: ${price}</p>
                     </div>
                 `;
-                lorealItem.appendChild(newItem);
+                lorealItem.appendChild(makeupItem);
             }
         }
     })

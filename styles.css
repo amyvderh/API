@@ -119,9 +119,9 @@ text-transform: uppercase;
     align-items: center;
 }
 
-.wrapper_right .item .item_info .img{
-    width: 180px;
-    height: 180px;
+.wrapper_right .item .item_info{
+    width: 100px;
+    height: 100px;
     background:pink;
     border-radius: 50%;
     margin-bottom: 20px;
@@ -132,24 +132,27 @@ text-transform: uppercase;
 .wrapper_right .item .item_info .img:before{
     content: "";
     position: absolute;
-    top: 70%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-size: cover;
-    background: url(logo_maybelline.png) no-repeat 0 0;
-    width: 180px;
-    height: 180px;
    
 }
 
 .wrapper_right .item.maybelline .item_info .img:before{
-    width: 250px;
-    height: 250px;
+    margin-top: 20px;
+    background: url(logo_maybelline.png) no-repeat 0 0;
+    width: 400px;
+    height: 100px;
+    margin-left: 250px;
 }
 .wrapper_right .item.loreal .item_info .img:before{
-    background: url(loreal.png);
-    width: 200px;
-    height: 200px;
+    background: url(loreal3.jpg) no-repeat 0 0;
+    width: 250px;
+    height: 180px;
+    margin-left: 170px;
+    margin-top: 40px;
+
 }
 
 .wrapper_right .item .item_info p{
@@ -169,5 +172,10 @@ text-transform: uppercase;
     margin-bottom: 10px;
     font-size: smaller;
 
+}
+
+.item_info {
+    width: 400px;
+    height: 200px;
 }
 
